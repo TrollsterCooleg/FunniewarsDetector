@@ -1,0 +1,7 @@
+name: FunniewarsDetector
+version: '${project.version}'
+main: me.cooleg.funniewarsdetector.FunniewarsDetector
+api-version: '1.18'
+commands:
+  funniewarsdetector:
+    permission: funniewarsdetector.command

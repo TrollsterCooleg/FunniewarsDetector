@@ -1,0 +1,2 @@
+# How many seconds a player must wait to be able to join the server after having played in a Funniewars
+acceptable-recovery-period-seconds: 604800
