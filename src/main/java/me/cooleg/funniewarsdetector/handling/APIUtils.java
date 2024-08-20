@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class APIUtils {
 
-    private static final Pattern pattern = Pattern.compile("\"events\":\\[\\{\"host\":\"[a-zA-Z0-9_]+\",\"date\":\"(.+?)\"");
+    private static final Pattern pattern = Pattern.compile("\\{\"host\":\"[a-zA-Z0-9_]+\",\"date\":\"(.+?)\"");
     private static URL url;
 
     static {
@@ -36,8 +36,11 @@ public class APIUtils {
             String string = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
 
             Matcher matcher = pattern.matcher(string);
-            if (!matcher.find()) return null;
-            ZonedDateTime date = ZonedDateTime.parse(matcher.group(1));
+            String group = null;
+            while (matcher.find()) {group = matcher.group(1);}
+            if (group == null) return null;
+
+            ZonedDateTime date = ZonedDateTime.parse(group);
             return date.toInstant();
         } catch (Exception e) {
             e.printStackTrace();
