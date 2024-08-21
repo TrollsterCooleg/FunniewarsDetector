@@ -1,2 +1,15 @@
 # How many seconds a player must wait to be able to join the server after having played in a Funniewars
 acceptable-recovery-period-seconds: 604800
+
+# Options:
+# "Block" stops the player from joining. This is the default.
+# "Alert" will broadcast a message to all staff whenever a funniewars player joins.
+
+response-method: "BLOCK"
+
+
+
+
+
+# Do not edit!
+config-ver: 1

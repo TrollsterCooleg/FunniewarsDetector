@@ -31,6 +31,7 @@ public class MainCommand implements CommandExecutor {
         if (args.length < 1) {sender.sendMessage(HINT); return true;}
         switch (args[0].toLowerCase()) {
             case "reload" -> {
+                funniewarsDetector.reloadConfig();
                 config.reloadConfig(funniewarsDetector);
                 sender.sendMessage(RELOADED);
             }
